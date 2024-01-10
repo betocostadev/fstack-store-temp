@@ -1,8 +1,8 @@
 {
-  "name": "sick-fits-backend",
-  "version": "2.0.0",
+  "name": "fstack-store-backend",
+  "version": "1.0.0",
   "private": true,
-  "author": "Wes Bos",
+  "author": "Beto Costa",
   "license": "MIT",
   "scripts": {
     "dev": "keystone-next",

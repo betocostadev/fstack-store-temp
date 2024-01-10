@@ -1,7 +1,7 @@
 {
-  "name": "sick-fits-frontend",
+  "name": "fstack-store-frontend",
   "version": "1.0.0",
-  "description": "Sick Fits! An example React, GraphQL, Next and Apollo",
+  "description": "FStore! An example React, GraphQL, Next and Apollo",
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",
@@ -19,8 +19,8 @@
       "react/jsx-props-no-spreading": 0
     }
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Beto Costa",
+  "license": "MIT",
   "dependencies": {
     "@apollo/client": "3.4.0",
     "@apollo/link-error": "^2.0.0-beta.3",
