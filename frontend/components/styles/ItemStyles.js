@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ItemStyles = styled.div`
+const Item = styled.div`
   background: white;
   border: 1px solid var(--offWhite);
   box-shadow: var(--bs);
@@ -22,10 +22,10 @@ const ItemStyles = styled.div`
   .buttonList {
     display: grid;
     width: 100%;
-    border-top: 1px solid var(--lightGrey);
+    border-top: 1px solid var(--lightGray);
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
-    background: var(--lightGrey);
+    background: var(--lightGray);
     & > * {
       background: white;
       border: 0;
@@ -35,4 +35,4 @@ const ItemStyles = styled.div`
   }
 `;
 
-export default ItemStyles;
+export default Item;
