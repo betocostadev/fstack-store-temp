@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types'
+import Header from './Header'
 
 export default function Page({ children }) {
-  return <div>{children}</div>
+  return (
+    <div>
+      <Header />
+      {children}
+    </div>
+  )
 }
 
 Page.propTypes = {
