@@ -8,7 +8,7 @@ const Logo = styled.h1`
   position: relative;
   z-index: 2;
   transform: skew(-7deg);
-  background: red;
+  background: var(--deepPurple700);
   a {
     color: white;
     text-decoration: none;
