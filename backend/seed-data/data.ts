@@ -1,8 +1,7 @@
 function timestamp() {
   // sometime in the last 30 days
-  const stampy =
-    Date.now() - Math.floor(Math.random() * 1000 * 60 * 60 * 24 * 30);
-  return new Date(stampy).toISOString();
+  const stampy = Date.now() - Math.floor(Math.random() * 1000 * 60 * 60 * 24 * 30)
+  return new Date(stampy).toISOString()
 }
 
 export const products = [
@@ -474,4 +473,4 @@ export const products = [
     // createdAt_utc: '2020-01-23T21:49:01.569Z',
     // createdAt_offset: '+00:00',
   },
-];
+]
