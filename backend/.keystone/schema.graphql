@@ -169,11 +169,19 @@ input UsersCreateInput {
   data: UserCreateInput
 }
 
+input ProductImageRelateToOneInput {
+  create: ProductImageCreateInput
+  connect: ProductImageWhereUniqueInput
+  disconnect: ProductImageWhereUniqueInput
+  disconnectAll: Boolean
+}
+
 """ A keystone list """
 type Product {
   id: ID!
   name: String
   description: String
+  photo: ProductImage
   status: String
   price: Int
 }
@@ -221,6 +229,8 @@ input ProductWhereInput {
   description_not_ends_with_i: String
   description_in: [String]
   description_not_in: [String]
+  photo: ProductImageWhereInput
+  photo_is_null: Boolean
   status: String
   status_not: String
   status_contains: String
@@ -260,6 +270,8 @@ enum SortProductsBy {
   name_DESC
   description_ASC
   description_DESC
+  photo_ASC
+  photo_DESC
   status_ASC
   status_DESC
   price_ASC
@@ -269,6 +281,7 @@ enum SortProductsBy {
 input ProductUpdateInput {
   name: String
   description: String
+  photo: ProductImageRelateToOneInput
   status: String
   price: Int
 }
@@ -281,6 +294,7 @@ input ProductsUpdateInput {
 input ProductCreateInput {
   name: String
   description: String
+  photo: ProductImageRelateToOneInput
   status: String
   price: Int
 }
@@ -338,11 +352,19 @@ input CloudinaryImageFormat {
   transformation: String
 }
 
+input ProductRelateToOneInput {
+  create: ProductCreateInput
+  connect: ProductWhereUniqueInput
+  disconnect: ProductWhereUniqueInput
+  disconnectAll: Boolean
+}
+
 """ A keystone list """
 type ProductImage {
   id: ID!
   image: CloudinaryImage_File
   altText: String
+  product: Product
 }
 
 input ProductImageWhereInput {
@@ -374,6 +396,8 @@ input ProductImageWhereInput {
   altText_not_ends_with_i: String
   altText_in: [String]
   altText_not_in: [String]
+  product: ProductWhereInput
+  product_is_null: Boolean
 }
 
 input ProductImageWhereUniqueInput {
@@ -385,11 +409,14 @@ enum SortProductImagesBy {
   id_DESC
   altText_ASC
   altText_DESC
+  product_ASC
+  product_DESC
 }
 
 input ProductImageUpdateInput {
   image: Upload
   altText: String
+  product: ProductRelateToOneInput
 }
 
 input ProductImagesUpdateInput {
@@ -400,6 +427,7 @@ input ProductImagesUpdateInput {
 input ProductImageCreateInput {
   image: Upload
   altText: String
+  product: ProductRelateToOneInput
 }
 
 input ProductImagesCreateInput {
