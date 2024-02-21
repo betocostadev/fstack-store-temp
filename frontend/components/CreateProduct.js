@@ -1,5 +1,8 @@
+import { useMutation } from '@apollo/client'
 import useForm from '../hooks/useForm'
 import Form from './styles/Form'
+import { CREATE_PRODUCT_MUTATION } from '../lib/queries/products'
+import DisplayError from './ErrorMessage'
 
 // This is the form to create a new product
 export default function CreateProduct() {
@@ -10,16 +13,27 @@ export default function CreateProduct() {
     description: '',
   })
 
-  const handleSubmit = (e) => {
+  const [createProduct, { data, loading, error }] = useMutation(
+    CREATE_PRODUCT_MUTATION,
+    {
+      variables: inputs,
+    }
+  )
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('inputs', inputs)
-    resetForm()
+    const response = await createProduct()
+    if (response?.data) {
+      clearForm()
+    }
   }
 
   return (
     <div>
+      <DisplayError error={error} />
+
       <Form onSubmit={handleSubmit}>
-        <fieldset>
+        <fieldset aria-busy={loading} disabled={loading}>
           <label htmlFor="image">
             Image
             <input

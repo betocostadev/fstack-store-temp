@@ -24,8 +24,8 @@ export const Product = list({
     status: select({
       options: [
         { label: ProductStatus.draftLabel, value: ProductStatus.draftValue },
-        { label: ProductStatus.availableLabel, value: ProductStatus.unavailableValue },
-        { label: ProductStatus.unavailableLabel, value: ProductStatus.availableValue },
+        { label: ProductStatus.availableLabel, value: ProductStatus.availableValue },
+        { label: ProductStatus.unavailableLabel, value: ProductStatus.unavailableValue },
       ],
       defaultValue: ProductStatus.draftValue,
       isRequired: true,
